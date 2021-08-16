@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="OverallInsight" name="HappiU Insight" namespace="http://camunda.org/schema/1.0/dmn" exporter="dmn-js (https://demo.bpmn.io/dmn)" exporterVersion="11.0.1">
+  <decision id="huInsights" name="HUInsights">
+    <informationRequirement id="InformationRequirement_0qnwi8v">
+      <requiredDecision href="#huRange" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ran6gd">
+      <requiredInput href="#InputData_0pgvdj9" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_046djzs">
+      <requiredDecision href="#huRange" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1c7v3kk" hitPolicy="COLLECT">
+      <input id="InputClause_1acmlkd" label="HappiU Range">
+        <inputExpression id="LiteralExpression_0bqgrlg" typeRef="integer">
+          <text>happiURange</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0bo3uen" label="Has Dependents" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0d6l79o" typeRef="boolean">
+          <text>hasDependents</text>
+        </inputExpression>
+      </input>
+      <output id="OuputClause_99999" label="Comment" name="comment" typeRef="string" biodi:width="192" />
+      <rule id="row-506282952-7">
+        <description>Informative</description>
+        <inputEntry id="UnaryTests_03g3ci0">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jb8hau">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kr45vj">
+          <text>"You could consider your dependents education"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01ub4tw">
+        <description>Informative</description>
+        <inputEntry id="UnaryTests_1lzrgmd">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a8vkdh">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13whket">
+          <text>"You are in a great situation"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-8">
+        <description>Informative</description>
+        <inputEntry id="UnaryTests_1ckv0bb">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1joyits">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_139n7gl">
+          <text>"You could do better for yourself"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0suzhq7">
+        <description>Informative</description>
+        <inputEntry id="UnaryTests_0yk2f29">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_002mv45">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_103mo2s">
+          <text>"You would need to consider balancing your needs and your dependents needs"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jrc3hf">
+        <description>Informative</description>
+        <inputEntry id="UnaryTests_1mx4wv0">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_057bg9e">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_079ec2q">
+          <text>"You could consider leaving a legacy for your dependents"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10u1kp8">
+        <description>Informative</description>
+        <inputEntry id="UnaryTests_1on4gw7">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_109a2j8">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g3tmm3">
+          <text>"Not in a good shape"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zezm29">
+        <description>Informative</description>
+        <inputEntry id="UnaryTests_0k5x749">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kw0hys">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0429jnb">
+          <text>"You can do better for yourself"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="huRange" name="HappiU Range">
+    <informationRequirement id="InformationRequirement_1ho9uyp">
+      <requiredInput href="#InputData_0rin549" />
+    </informationRequirement>
+    <authorityRequirement id="AuthorityRequirement_1tr2a29">
+      <requiredAuthority href="#KnowledgeSource_0b8hnqo" />
+    </authorityRequirement>
+    <decisionTable id="DecisionTable_040j91i">
+      <input id="InputClause_0bbq1z8" label="HappiU">
+        <inputExpression id="LiteralExpression_1iwaqcz" typeRef="integer">
+          <text>happiUScore</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0pcbpc9" label="HappiU">
+        <inputExpression id="LiteralExpression_1uu3xe6" typeRef="integer">
+          <text>happiUScore</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0lfar1z" label="HU Range" name="happiURange" typeRef="integer" />
+      <rule id="row-506282952-1">
+        <description>Great work!</description>
+        <inputEntry id="UnaryTests_06z2ju4">
+          <text>&gt; 80</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ph5qbt">
+          <text>&lt;= 85</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sntjhd">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-506282952-2">
+        <description>You can do better</description>
+        <inputEntry id="UnaryTests_0o5o0mm">
+          <text>&gt; 70</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rtyr8x">
+          <text>&lt;= 80</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15nybba">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00smbba">
+        <description>Some needs might need to be prioritised</description>
+        <inputEntry id="UnaryTests_06k6wft">
+          <text>&gt; 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a2s4i8">
+          <text>&lt;= 70</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w5lh4j">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0rin549" name="HappiU Score" />
+  <inputData id="InputData_0pgvdj9" name="Has Dependents?" />
+  <knowledgeSource id="KnowledgeSource_0b8hnqo" name="HappiU Cookbook" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_0v6kkf2">
+      <dmndi:DMNShape id="DMNShape_1y3f06y" dmnElementRef="huInsights">
+        <dc:Bounds height="80" width="180" x="515" y="83" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_09iy2kt" dmnElementRef="InformationRequirement_0ran6gd">
+        <di:waypoint x="676" y="236" />
+        <di:waypoint x="620" y="163" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1113un2" dmnElementRef="InformationRequirement_0qnwi8v">
+        <di:waypoint x="498" y="237" />
+        <di:waypoint x="558" y="163" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0yk7bws" dmnElementRef="huRange">
+        <dc:Bounds height="80" width="180" x="376" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1kcjv22" dmnElementRef="AuthorityRequirement_1tr2a29">
+        <di:waypoint x="253" y="280" />
+        <di:waypoint x="376" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1urky2j" dmnElementRef="InformationRequirement_1ho9uyp">
+        <di:waypoint x="352" y="396" />
+        <di:waypoint x="466" y="337" />
+        <di:waypoint x="466" y="317" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1juu7tu" dmnElementRef="InputData_0rin549">
+        <dc:Bounds height="45" width="125" x="289" y="396" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0i5zqvo" dmnElementRef="InputData_0pgvdj9">
+        <dc:Bounds height="45" width="125" x="630" y="236" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0g4vygp" dmnElementRef="KnowledgeSource_0b8hnqo">
+        <dc:Bounds height="63" width="100" x="153" y="243" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

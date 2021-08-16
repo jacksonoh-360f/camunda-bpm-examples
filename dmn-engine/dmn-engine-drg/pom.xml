@@ -100,10 +100,10 @@
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
               <useUniqueVersions>false</useUniqueVersions>
-              <mainClass>org.camunda.bpm.example.drg.BeveragesDecider</mainClass>
+              <mainClass>org.threesixtyf.huinsight.example.drg</mainClass>
             </manifest>
           </archive>
-          <finalName>BeveragesDecider</finalName>
+          <finalName>HUInsightDecider</finalName>
         </configuration>
       </plugin>
 
